@@ -20,7 +20,7 @@ export const PersonScreen = ({route, navigation}: Props) => {
 
   useEffect(() => {
     navigation.setOptions({
-      title: params!.name,
+      title: params.name,
     });
   }, []);
 

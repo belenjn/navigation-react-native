@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Button, Text, View} from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
@@ -17,25 +18,29 @@ export const Page1Screen = ({navigation}: Props) => {
 
       <Text>Navigate with arguments</Text>
 
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('PersonScreen', {
-            id: 1,
-            name: 'Dexter',
-          })
-        }>
-        <Text>Dexter</Text>
-      </TouchableOpacity>
+      <View style={{flexDirection: 'row'}}>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate('PersonScreen', {
+              id: 1,
+              name: 'Dexter',
+            })
+          }
+          style={{...styles.button, backgroundColor: '#5856d6'}}>
+          <Text style={styles.bigButtonText}>Dexter</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('PersonScreen', {
-            id: 2,
-            name: 'Dani',
-          })
-        }>
-        <Text>Dani</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate('PersonScreen', {
+              id: 2,
+              name: 'Dani',
+            })
+          }
+          style={{...styles.button, backgroundColor: '#ff9427'}}>
+          <Text style={styles.bigButtonText}>Dani</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
