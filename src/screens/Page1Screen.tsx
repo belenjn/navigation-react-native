@@ -1,12 +1,13 @@
 import React from 'react';
 import {Button, Text, View} from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
+import {styles} from '../theme/appTheme';
 
 interface Props extends StackScreenProps<any, any> {}
 
 export const Page1Screen = ({navigation}: Props) => {
   return (
-    <View>
+    <View style={styles.globalMargin}>
       <Text>Page1Screen</Text>
       <Button
         title="Go to Page 2"
