@@ -1,10 +1,11 @@
 /* eslint-disable react/react-in-jsx-scope */
-import {Text, View} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {Text} from 'react-native';
 
 export const App = () => {
   return (
-    <View>
-      <Text> App</Text>
-    </View>
+    <NavigationContainer>
+      <Text>App</Text>
+    </NavigationContainer>
   );
 };
