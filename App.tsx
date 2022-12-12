@@ -2,15 +2,20 @@
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {LateralMenu} from './src/navigator/LateralMenu';
-// import {BasicLateralMenu} from './src/navigator/BasicLateralMenu';
-// import {StackNavigator} from './src/navigator/StackNavigator';
+import {AuthProvider} from './src/context/AuthContext';
 
 export const App = () => {
   return (
     <NavigationContainer>
-      {/* <StackNavigator /> */}
-      {/* <BasicLateralMenu /> */}
-      <LateralMenu />
+      <AppState>
+        {/* <StackNavigator /> */}
+        {/* <BasicLateralMenu /> */}
+        <LateralMenu />
+      </AppState>
     </NavigationContainer>
   );
+};
+
+const AppState = ({children}: any) => {
+  return <AuthProvider>{children}</AuthProvider>;
 };
