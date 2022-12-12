@@ -1,14 +1,27 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Tab1Screen} from '../screens/Tab1Screen';
 import {Tab2Screen} from '../screens/Tab2Screen';
 import {StackNavigator} from './StackNavigator';
+import {colors} from '../theme/appTheme';
 
 const Tab = createBottomTabNavigator();
 
 export const Tabs = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      sceneContainerStyle={{
+        backgroundColor: 'white',
+      }}
+      screenOptions={{
+        tabBarActiveTintColor: colors.primary,
+        tabBarStyle: {
+          borderTopColor: colors.primary,
+          borderTopWidth: 0,
+          elevation: 0,
+        },
+      }}>
       <Tab.Screen
         name="Tab1Screen"
         options={{title: 'Tab 1'}}
@@ -21,7 +34,7 @@ export const Tabs = () => {
       />
       <Tab.Screen
         name="StackNavigator"
-        options={{title: 'Navigation'}}
+        options={{title: 'Stack'}}
         component={StackNavigator}
       />
     </Tab.Navigator>
