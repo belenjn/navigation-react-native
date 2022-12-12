@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/react-in-jsx-scope */
 import {
   createDrawerNavigator,
@@ -8,8 +9,19 @@ import {Image, View, TouchableOpacity, Text} from 'react-native';
 import {SettingsScreen} from '../screens/SettingsScreen';
 import {styles} from '../theme/appTheme';
 import {StackNavigator} from './StackNavigator';
+import {createStackNavigator} from '@react-navigation/stack';
 
 const Drawer = createDrawerNavigator();
+
+const Stack = createStackNavigator();
+
+const SettingStackScreen = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="SettingsScreen" component={SettingsScreen} />
+    </Stack.Navigator>
+  );
+};
 
 export const LateralMenu = () => {
   return (
