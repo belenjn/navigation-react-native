@@ -7,6 +7,7 @@ import {Tab1Screen} from '../screens/Tab1Screen';
 import {StackNavigator} from './StackNavigator';
 import {colors} from '../theme/appTheme';
 import {Platform, Text} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {TopTabNavigator} from './TopTabNavigator';
 
 let iconName: string;
@@ -28,18 +29,18 @@ const TabsAndroid = () => {
         tabBarIcon: ({color, focused}) => {
           switch (route.name) {
             case 'Tab1Screen':
-              iconName = 'T1';
+              iconName = 'airplane-outline';
               break;
 
             case 'Tab2Screen':
-              iconName = 'T2';
+              iconName = 'chatbox-ellipses-outline';
               break;
 
             case 'StackNavigator':
-              iconName = 'ST';
+              iconName = 'map-outline';
               break;
           }
-          return <Text style={{color: colors.primary}}>{iconName}</Text>;
+          return <Icon name={iconName} size={20} color={color} />;
         },
       })}>
       <BottomTabAndroid.Screen
@@ -83,21 +84,21 @@ const TabsIOS = () => {
         },
       }}
       defaultScreenOptions={({route}) => ({
-        tabBarIcon: ({color, focused, size}) => {
+        tabBarIcon: ({color, focused}) => {
           switch (route.name) {
             case 'Tab1Screen':
-              iconName = 'T1';
+              iconName = 'airplane-outline';
               break;
 
             case 'Tab2Screen':
-              iconName = 'T2';
+              iconName = 'chatbox-ellipses-outline';
               break;
 
             case 'StackNavigator':
-              iconName = 'ST';
+              iconName = 'map-outline';
               break;
           }
-          return <Text style={{color: colors.primary}}>{iconName}</Text>;
+          return <Icon name={iconName} size={20} color={color} />;
         },
       })}>
       {/* <Tab.Screen
