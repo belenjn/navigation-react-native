@@ -19,7 +19,29 @@ const BottomTabAndroid = createMaterialBottomTabNavigator();
 
 const TabsAndroid = () => {
   return (
-    <BottomTabAndroid.Navigator>
+    <BottomTabAndroid.Navigator
+      sceneAnimationEnabled={true}
+      barStyle={{
+        backgroundColor: colors.primary,
+      }}
+      defaultScreenOptions={({route}) => ({
+        tabBarIcon: ({color, focused}) => {
+          switch (route.name) {
+            case 'Tab1Screen':
+              iconName = 'T1';
+              break;
+
+            case 'Tab2Screen':
+              iconName = 'T2';
+              break;
+
+            case 'StackNavigator':
+              iconName = 'ST';
+              break;
+          }
+          return <Text style={{color: colors.primary}}>{iconName}</Text>;
+        },
+      })}>
       <BottomTabAndroid.Screen
         name="Tab1Screen"
         options={{
