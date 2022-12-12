@@ -65,7 +65,7 @@ const TabsAndroid = () => {
 
 const BottomTabIOS = createBottomTabNavigator();
 
-export const TabsIOS = () => {
+const TabsIOS = () => {
   return (
     <BottomTabIOS.Navigator
       sceneContainerStyle={{
