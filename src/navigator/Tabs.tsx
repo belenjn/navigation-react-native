@@ -2,19 +2,50 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {Tab1Screen} from '../screens/Tab1Screen';
 import {Tab2Screen} from '../screens/Tab2Screen';
 import {StackNavigator} from './StackNavigator';
 import {colors} from '../theme/appTheme';
-import {Text} from 'react-native';
+import {Platform, Text} from 'react-native';
 
 let iconName: string;
 
-const Tab = createBottomTabNavigator();
-
 export const Tabs = () => {
+  return Platform.OS === 'ios' ? <TabsIOS /> : <TabsAndroid />;
+};
+
+const BottomTabAndroid = createMaterialBottomTabNavigator();
+
+const TabsAndroid = () => {
   return (
-    <Tab.Navigator
+    <BottomTabAndroid.Navigator>
+      <BottomTabAndroid.Screen
+        name="Tab1Screen"
+        options={{
+          title: 'Tab 1',
+        }}
+        component={Tab1Screen}
+      />
+      <BottomTabAndroid.Screen
+        name="Tab2Screen"
+        options={{title: 'Tab 2'}}
+        component={Tab2Screen}
+      />
+      <BottomTabAndroid.Screen
+        name="StackNavigator"
+        options={{title: 'Stack'}}
+        component={StackNavigator}
+      />
+    </BottomTabAndroid.Navigator>
+  );
+};
+
+const BottomTabIOS = createBottomTabNavigator();
+
+export const TabsIOS = () => {
+  return (
+    <BottomTabIOS.Navigator
       sceneContainerStyle={{
         backgroundColor: 'white',
       }}
@@ -55,23 +86,23 @@ export const Tabs = () => {
         }}
         component={Tab1Screen}
       /> */}
-      <Tab.Screen
+      <BottomTabIOS.Screen
         name="Tab1Screen"
         options={{
           title: 'Tab 1',
         }}
         component={Tab1Screen}
       />
-      <Tab.Screen
+      <BottomTabIOS.Screen
         name="Tab2Screen"
         options={{title: 'Tab 2'}}
         component={Tab2Screen}
       />
-      <Tab.Screen
+      <BottomTabIOS.Screen
         name="StackNavigator"
         options={{title: 'Stack'}}
         component={StackNavigator}
       />
-    </Tab.Navigator>
+    </BottomTabIOS.Navigator>
   );
 };
