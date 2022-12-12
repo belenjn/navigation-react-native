@@ -1,6 +1,8 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import {useEffect} from 'react';
+import {styles} from '../theme/appTheme';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const Tab1Screen = () => {
   useEffect(() => {
@@ -8,8 +10,9 @@ export const Tab1Screen = () => {
   }, []);
 
   return (
-    <View>
-      <Text>Tab1Screen</Text>
+    <View style={styles.globalMargin}>
+      <Text style={styles.title}>Icons</Text>
+      <Icon name="airplane-outline" size={30} />
     </View>
   );
 };
