@@ -2,7 +2,7 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Tab1Screen} from '../screens/Tab1Screen';
 import {Tab2Screen} from '../screens/Tab2Screen';
-import {Tab3Screen} from '../screens/Tab3Screen';
+import {StackNavigator} from './StackNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,9 +20,9 @@ export const Tabs = () => {
         component={Tab2Screen}
       />
       <Tab.Screen
-        name="Tab3Screen"
-        options={{title: 'Tab 3'}}
-        component={Tab3Screen}
+        name="StackNavigator"
+        options={{title: 'Navigation'}}
+        component={StackNavigator}
       />
     </Tab.Navigator>
   );
